@@ -193,7 +193,7 @@ services:
     networks:
       - default
     ports:
-      - 8080:8080/tcp
+      - 8088:8080/tcp
     restart: unless-stopped
     volumes:
       - ./example/nginx/:/etc/nginx/conf.d/:ro
@@ -219,7 +219,7 @@ services:
     networks:
       - default
     ports:
-      - 3000:3000/tcp
+      - 3008:3000/tcp
     restart: unless-stopped
     volumes:
       - ./example/grafana/provisioning:/etc/grafana/provisioning:ro
