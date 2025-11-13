@@ -219,7 +219,7 @@ services:
     networks:
       - default
     ports:
-      - 3008:3000/tcp
+      - 3000:3000/tcp
     restart: unless-stopped
     volumes:
       - ./example/grafana/provisioning:/etc/grafana/provisioning:ro
