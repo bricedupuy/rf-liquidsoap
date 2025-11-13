@@ -92,29 +92,6 @@ services:
       - default
     restart: unless-stopped
 
-  # Feed liquidsoap with an example SRT source (local file)
-  source-ffmpegsurround:
-    command:
-      - ffmpeg
-      - -hide_banner
-      - -re
-      - -i
-      - /audio/lib/CHANNEL_ORDER_TEST_MUSIC_MULTI_5.1_-23LUFS.wav
-      - -vn
-      - -f
-      - wav
-      - -codec:a
-      - pcm_s24le
-      - "srt://liquidsoap-myradiosurround:10012" # voieB_caller1
-    container_name: source-ffmpegsurround
-    entrypoint: []
-    image: linuxserver/ffmpeg:latest
-    networks:
-      - default
-    restart: unless-stopped
-    volumes:
-      - ./example/audio/:/audio/:ro
-
   # STREAMING SERVERS #
   
   # Icecast
