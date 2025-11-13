@@ -227,7 +227,6 @@ services:
 
   # Collector
   prometheus:
-    container_name: liquidsoap-prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -236,7 +235,7 @@ services:
       - '--storage.tsdb.retention.time=200h'
       - '--web.enable-lifecycle'
       - '--log.level=warn'
-    container_name: prometheus
+    container_name: liquidsoap-prometheus
     image: prom/prometheus:latest
     labels:
       org.label-schema.group: "monitoring"
