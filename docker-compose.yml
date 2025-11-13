@@ -214,8 +214,8 @@ services:
       - GF_USERS_ALLOW_SIGN_UP=false
       - GF_LOG_LEVEL=warn
     image: grafana/grafana:latest
-#    labels:
-#      org.label-schema.group: "monitoring"
+    labels:
+      - org.label-schema.group=monitoring
     networks:
       - default
     restart: unless-stopped
@@ -236,7 +236,7 @@ services:
     container_name: liquidsoap-prometheus
     image: prom/prometheus:latest
     labels:
-      org.label-schema.group: "monitoring"
+      - org.label-schema.group=monitoring
     networks:
       - default
     restart: unless-stopped
@@ -256,7 +256,7 @@ services:
     image: ncabatoff/process-exporter
     privileged: true
     labels:
-      org.label-schema.group: "monitoring"
+      - org.label-schema.group=monitoring
     networks:
       - default
     restart: unless-stopped
