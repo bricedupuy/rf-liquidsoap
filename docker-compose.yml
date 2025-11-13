@@ -218,8 +218,6 @@ services:
       org.label-schema.group: "monitoring"
     networks:
       - default
-    ports:
-      - 3000:3000/tcp
     restart: unless-stopped
     volumes:
       - ./example/grafana/provisioning:/etc/grafana/provisioning:ro
