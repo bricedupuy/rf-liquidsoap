@@ -8,6 +8,8 @@ services:
       - /scripts/transcoder/00-live.liq
     container_name: liquidsoap-myradio
     image: savonet/liquidsoap:rolling-release-v2.4.x
+    environment:
+      - TZ=Europe/Paris
     networks:
       - default
     restart: unless-stopped
