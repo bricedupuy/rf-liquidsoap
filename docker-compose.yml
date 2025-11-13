@@ -124,22 +124,22 @@ services:
 
   # Feed myradiosurround with an example 5.1 SRT source with liquidsoap
   # (local playlist)
-  source-mystreamersurround:
-    command:
-      - /conf/mystreamersurround.liq
-      - /scripts/streamer/00-live.liq
-    container_name: source-mystreamersurround
-    image: savonet/liquidsoap:rolling-release-v2.4.x
-    networks:
-      - default
-    restart: unless-stopped
-    ports:
-      - 9031:9031/tcp
-      - 7030:7030/tcp
-    volumes:
-      - ./example/audio/:/audio/:ro
-      - ./example/liquidsoap/:/conf/:ro
-      - ./scripts/streamer/:/scripts/streamer/:ro
+  #   source-mystreamersurround:
+  #     command:
+  #       - /conf/mystreamersurround.liq
+  #       - /scripts/streamer/00-live.liq
+  #     container_name: source-mystreamersurround
+  #     image: savonet/liquidsoap:rolling-release-v2.4.x
+  #     networks:
+  #       - default
+  #     restart: unless-stopped
+  #     ports:
+  #       - 9031:9031/tcp
+  #       - 7030:7030/tcp
+  #     volumes:
+  #       - ./example/audio/:/audio/:ro
+  #       - ./example/liquidsoap/:/conf/:ro
+  #       - ./scripts/streamer/:/scripts/streamer/:ro
 
   # Feed liquidsoap with an example SRT source (local file)
   source-ffmpegsurround:
@@ -172,10 +172,10 @@ services:
   icecast:
     container_name: icecast
     environment:
-      - ICECAST_SOURCE_PASSWORD=secret
-      - ICECAST_ADMIN_PASSWORD=secret
-      - ICECAST_PASSWORD=secret
-      - ICECAST_RELAY_PASSWORD=secret
+      - ICECAST_SOURCE_PASSWORD=${ICECAST_SOURCE_PASSWORD:-changeme}
+      - ICECAST_ADMIN_PASSWORD=${ICECAST_ADMIN_PASSWORD:-changeme}
+      - ICECAST_PASSWORD=${ICECAST_PASSWORD:-changeme}
+      - ICECAST_RELAY_PASSWORD=${ICECAST_RELAY_PASSWORD:-changeme}
       - ICECAST_HOSTNAME=icecast
       - ICECAST_MAX_SOURCES=10
     expose:
@@ -325,18 +325,18 @@ services:
       - ./example/liquidsoap/:/conf/:ro
       - ./scripts/transcoder/:/scripts/transcoder/:ro
 
-  liquidsoap-test-transcoder-surround:
-    command:
-      - -c
-      - /conf/myradiosurround.liq
-      - /scripts/transcoder/00-live.liq
-    container_name: liquidsoap-test-transcoder-surround
-    image: savonet/liquidsoap:rolling-release-v2.4.x
-    networks:
-      - default
-    volumes:
-      - ./example/liquidsoap/:/conf/:ro
-      - ./scripts/transcoder/:/scripts/transcoder/:ro
+  #   liquidsoap-test-transcoder-surround:
+  #     command:
+  #       - -c
+  #       - /conf/myradiosurround.liq
+  #       - /scripts/transcoder/00-live.liq
+  #     container_name: liquidsoap-test-transcoder-surround
+  #     image: savonet/liquidsoap:rolling-release-v2.4.x
+  #     networks:
+  #       - default
+  #     volumes:
+  #       - ./example/liquidsoap/:/conf/:ro
+  #       - ./scripts/transcoder/:/scripts/transcoder/:ro
 
   liquidsoap-test-streamer-stereo:
     command:
