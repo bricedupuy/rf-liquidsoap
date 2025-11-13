@@ -139,6 +139,8 @@ services:
     expose:
       - "80"
     image: nginx:alpine
+    environment:
+      - TZ=Europe/Paris
     networks:
       - default
     ports:
