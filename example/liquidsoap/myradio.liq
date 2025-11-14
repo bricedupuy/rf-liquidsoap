@@ -31,7 +31,7 @@ hls_formats = ["lofi", "midfi", "hifi"]
 
 # ICECAST output configuration
 icecast_host = getenv("ICECAST_HOSTNAME", "icecast")
-icecast_port = getenv("ICECAST_PORT", "8000")
+icecast_port = "8000"
 icecast_password = getenv("ICECAST_SOURCE_PASSWORD", "hackme")
 icecast_formats =
   [("aac", ["lofi", "midfi", "hifi"]), ("mp3", ["lofi", "midfi"])]
