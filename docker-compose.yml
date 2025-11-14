@@ -9,20 +9,16 @@ services:
     container_name: liquidsoap-myradio
     image: savonet/liquidsoap:rolling-release-v2.4.x
     environment:
-      - TZ=Europe/Paris
+      - TZ=${TZ}
+      - ICECAST_SOURCE_PASSWORD=${ICECAST_SOURCE_PASSWORD}
+      - ICECAST_HOSTNAME=${ICECAST_HOSTNAME:-icecast}
     networks:
       - default
     restart: unless-stopped
     ports:
       - 9001:9001/tcp
       - 7000:7000/tcp
-      - 10000:10000/tcp
-      - 10001:10001/tcp
-      - 10002:10002/tcp
-      - 10003:10003/tcp
-      - 10004:10004/tcp
-      - 10005:10005/tcp
-      - 10006:10006/tcp
+      - 10000-10006:10000-10006/tcp
     volumes:
       - ./example/liquidsoap/:/conf/:ro
       - ./scripts/transcoder/:/scripts/transcoder/:ro
@@ -119,7 +115,7 @@ services:
       - "80"
     image: nginx:alpine
     environment:
-      - TZ=Europe/Paris
+      - TZ=${TZ}
     networks:
       - default
     ports:
