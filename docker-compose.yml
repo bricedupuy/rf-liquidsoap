@@ -19,6 +19,7 @@ services:
       - 9001:9001/tcp
       - 7000:7000/tcp
       - 10000-10006:10000-10006/tcp
+      - 10000-10006:10000-10006/udp
     volumes:
       - ./example/liquidsoap/:/conf/:ro
       - ./scripts/transcoder/:/scripts/transcoder/:ro
