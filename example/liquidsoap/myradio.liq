@@ -30,8 +30,9 @@ hls_segments_http_post_target = "http://segmentforwarder"
 hls_formats = ["lofi", "midfi", "hifi"]
 
 # ICECAST output configuration
-icecast_host = getenv("ICECAST_HOSTNAME", "icecast")
+icecast_host = getenv(default="icecast", "ICECAST_HOSTNAME")
 icecast_port = 8000
-icecast_password = getenv("ICECAST_SOURCE_PASSWORD", "hackme")
+icecast_password = getenv(default="hackme", "ICECAST_SOURCE_PASSWORD")
 icecast_formats =
   [("aac", ["lofi", "midfi", "hifi"]), ("mp3", ["lofi", "midfi"])]
+
