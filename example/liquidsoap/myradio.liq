@@ -34,4 +34,4 @@ icecast_port = 8000
 icecast_host = "icecast"
 icecast_password = "hackme"
 icecast_formats =
-  [("aac", ["lofi", "midfi", "hifi"]), ("mp3", ["lofi", "midfi"])]
+  [("aac", ["midfi"]), ("mp3", ["midfi"])]
