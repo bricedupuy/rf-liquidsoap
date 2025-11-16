@@ -10,7 +10,7 @@ let formats.stereo.icecast.mp3 =
             %audio(
               codec = "libmp3lame",
               channels = 2,
-              b = "32k",
+              b = "64k",
               samplerate = 48000,
               compression_level = 2
             )
